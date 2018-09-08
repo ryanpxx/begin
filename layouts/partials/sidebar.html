@@ -1,13 +1,14 @@
-
 <aside class="l-sidebar">
 
   <section class="panel panel-default">
     <div class="panel-heading">
-      <div class="panel-title">LATESTS</div>
+      <div class="panel-title">LATEST</div>
     </div>
     <div class="list-group">
       {{ range first 10 .Site.RegularPages }}
-      <a href="{{ .Permalink }}" class="list-group-item">{{ .Title }}</a>
+        {{ if ne .Params.excludefrompostlisting "true" }}
+          <a href="{{ .Permalink }}" class="list-group-item">{{ .Title }}</a>
+        {{ end }}
       {{ end }}
     </div>
   </section>
